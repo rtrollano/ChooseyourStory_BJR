@@ -3,8 +3,23 @@
 body{
     background-color: rgb(255, 255, 255);
     margin:0;
-   
+    
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
 }
+
+h1, h2 {
+    font-weight: 700;
+    font-size: 50px;
+        text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.6),
+        0 0 12px rgba(255, 255, 255, 0.35);
+    
+
+}
+
+   
+
 /*---------------------------------------------------------------------*/
 /*                               HEADER                                */
 /*---------------------------------------------------------------------*/
@@ -38,7 +53,11 @@ body{
     display: flex;
     gap:1rem;
     text-align: center;
+    
 
+}
+.nav_header a{
+    color:rgb(0, 0, 79) ;
 }
 
 .checkbox-menu{
@@ -98,6 +117,9 @@ body{
 /*---------------------------------------------------------------------*/
 /*                              index                                  */
 /*---------------------------------------------------------------------*/
+a {
+    text-decoration: none;
+}
 
 .main {
     min-height: 100vh;
@@ -139,7 +161,16 @@ gap: 1rem;
     color: white;
     box-shadow: 0 8px 20px #ffffff26;
     backdrop-filter: blur(10px);
+    transition:transform 0.25s ease,box-shadow 0.25s ease, background 0.25s ease;
   
+}
+.boton-main:hover {
+    color: rgb(88, 88, 88);
+    transform: scale(1.08);
+
+    background: rgba(255, 255, 255, 0.9);
+
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.566);
 }
 
 .main h1,
@@ -147,3 +178,173 @@ gap: 1rem;
     color: white;
 }
   
+
+
+.scroll-reveal-nave {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-image: url("./Assets/cielo_estrellado.jpg");
+    background-size: cover;       
+    background-position: center top;    
+    background-repeat: no-repeat; 
+}
+
+
+.escena {
+    position: sticky;
+    top: 35vh;
+
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.imagen_svg {
+    width: 80px;
+    height: auto;
+    
+}
+
+.nave.izquierda {
+    animation: entrarIzquierda linear forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.nave.derecha {
+    animation: entrarDerecha linear forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+@keyframes entrarIzquierda {
+    from {
+        transform: translateX(-300px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes entrarDerecha {
+    from {
+        transform: translateX(300px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.texto {
+    color: white;
+    max-width: 360px;
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(40px);
+
+    animation: revelarTexto linear forwards;
+    animation-timeline: view();
+    animation-range: entry 40% cover 60%;
+}
+
+@keyframes revelarTexto {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.nuestros-juegos{
+    background-color: rgb(3, 0, 16);
+
+    color: white;
+   
+}
+
+
+.contenedor_nuestros_juegos{
+    display: flex;
+    flex-direction: column;
+  text-align: center;
+
+    
+    
+}
+
+.contenedor_videos{
+display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-around;
+  gap:2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.caja_video{
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+.contenedor_videos video{
+    
+    border-radius: 20px;
+}
+
+.como_jugar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 3rem;
+    
+}
+
+.boton_jugar{
+    padding: 1rem 1.8rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.6);
+    color: white;
+    box-shadow: 0 8px 20px #ffffff26;
+    backdrop-filter: blur(10px);
+    transition:transform 0.25s ease,box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.boton_jugar:hover,.boton_jugar2:hover {
+    color: rgb(88, 88, 88);
+    transform: scale(1.08);
+
+    background: rgba(255, 255, 255, 0.9);
+
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.566);
+}
+
+.boton_jugar2{
+    padding: 1.5rem 4rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.6);
+    color: white;
+    box-shadow: 0 8px 20px #ffffff26;
+    backdrop-filter: blur(10px);
+    transition: transform 0.25s ease,box-shadow 0.25s ease, background 0.25s ease;
+}
+
+
+
