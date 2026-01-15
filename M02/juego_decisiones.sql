@@ -36,6 +36,21 @@ CREATE TABLE adventure_states (
 );
 
 
+
+CREATE TABLE answer_state_effects (
+    id_answer INTEGER,
+    id_adventure INTEGER,
+    id_state INTEGER,
+    value INTEGER,
+
+    PRIMARY KEY (id_answer, id_adventure, id_state),
+    FOREIGN KEY (id_answer, id_adventure) REFERENCES answers(id_answer, id_adventure),
+    FOREIGN KEY (id_state) REFERENCES game_states_master(id_state)
+);
+
+
+
+
 CREATE TABLE adventure_context (
     id_adventure INTEGER PRIMARY KEY,
     context_text TEXT NOT NULL,
