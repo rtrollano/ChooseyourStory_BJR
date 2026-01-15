@@ -1,0 +1,28 @@
+
+.header {
+    position: sticky;
+    background-color: #ffffff;
+    color: #fff;
+    width: 100%;
+}
+
+.contenedor_header {
+    max-width: 1200px;
+    height: 50px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    width: 250px;
+    height: auto;
+}
+
+.nav_header{
+    display: flex;
+    gap:1rem;
+
+}
