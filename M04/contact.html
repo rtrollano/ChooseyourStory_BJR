@@ -4,8 +4,93 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
 </head>
 <body>
+ <header class="header">
+        <div class="contenedor_header">
+    
+            <img src="./Assets/Logo.png" alt="" class="logo">
+       
+        <input type="checkbox" id="menu-toggle" class="checkbox-menu">
+
+        <nav class="nav_header">
+            <a href="index.html">Inici</a>
+            <a href="instrucciones.html">Instruccions</a>
+            <a href="historia.html">Història</a>
+            <a href="contacto.html">Contacte</a>
+            <a href="about.html">About</a>
+        </nav>
+
+        <label for="menu-toggle" class="boton_menu" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        </div>
+    </header>
+
+ 
+
+
+  <section class="seccion-contacto">
+
+     <h2 class="titulo-seccion">Contacta amb nosaltres</h2>
+
+    <div class="contenedor-contacto">
+
+        <div class="info-contacto">
+        <p><strong>Adreça:</strong></p>
+        <div class="mapa-contacto">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47895.60405002589!2d2.0983612446936175!3d41.38548425095402!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12a4a2e4e498e4db%3A0x88f84d02f0f850f9!2sGAMERIA!5e0!3m2!1ses!2sus!4v1766406593796!5m2!1ses!2sus" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <p><strong>Telèfon:</strong> <a href="tel:+34999999999">+34 999 999 999</a></p>
+        <p><strong>Correu electrònic:</strong> <a href="mailto:info@codisecret.cat">info@codisecret.cat</a></p>
+        </div>
+
+    
+        <form class="formulario-contacto">
+        <label>Nom</label>
+        <input type="text" required pattern="[A-Za-zÀ-ÿ\s]{3,40}">
+
+        <label>Telèfon</label>
+        <input type="tel" required pattern="[0-9]{9}">
+
+        <label>Correu electrònic</label>
+        <input type="email" required>
+
+        <label>Missatge</label>
+        <textarea required></textarea>
+
+        <button type="submit" class="btn">Enviar</button>
+        </form>
+    </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     
 </body>
 </html>
