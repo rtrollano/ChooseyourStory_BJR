@@ -11,7 +11,7 @@ body{
 h1, h2 {
     font-weight: 700;
     font-size: 50px;
-        text-shadow:
+    text-shadow:
         0 0 6px rgba(255, 255, 255, 0.6),
         0 0 12px rgba(255, 255, 255, 0.35);
     
@@ -393,6 +393,137 @@ display: flex;
     transition: transform 0.25s ease,box-shadow 0.25s ease, background 0.25s ease;
     font-weight: bold;
 }
+/*----------------------------------------------------------------------------------------------- */
+/*                                            HISTORIA                                            */
+/*----------------------------------------------------------------------------------------------- */
+.Personajes {
+  background-color: #000;   
+  padding: 0.5rem 0;          
+}
+.Personajes h1 {
+  color: white;
+  text-align: center;
+  font-size: 3rem;
+  letter-spacing: 4px;
+
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.4),
+    0 0 12px rgba(255,255,255,0.2);
+}
+
+
+
+.carrusel {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+
+
+
+.carrusel-aventura1 {
+  background-image: url("./Assets/fondo_mision_espacial.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.carrusel-aventura2 {
+  background-image: url("./Assets/fondo_cartas_anonimas.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.carrusel input {
+  display: none;
+}
+
+.contenedor-diapositivas {
+  display: flex;
+  width: 400%;
+  height: 100%;
+  transition: transform 0.8s ease;
+}
+
+
+.diapositiva {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+
+  display: flex;
+  flex-direction: row;       
+  align-items: center;
+
+
+
+
+}
+
+.diapositiva img {
+  width: 20rem;
+  height: auto;
+  object-fit: cover;
+}
+.texto-carrusel {
+  width: 55%;
+  padding: 4rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  color: white;
+
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.2)
+  );
+}
+
+#a1-1:checked ~ .contenedor-diapositivas { transform: translateX(0%); }
+#a1-2:checked ~ .contenedor-diapositivas { transform: translateX(-100%); }
+#a1-3:checked ~ .contenedor-diapositivas { transform: translateX(-200%); }
+#a1-4:checked ~ .contenedor-diapositivas { transform: translateX(-300%); }
+
+
+#a2-1:checked ~ .contenedor-diapositivas { transform: translateX(0%); }
+#a2-2:checked ~ .contenedor-diapositivas { transform: translateX(-100%); }
+#a2-3:checked ~ .contenedor-diapositivas { transform: translateX(-200%); }
+#a2-4:checked ~ .contenedor-diapositivas { transform: translateX(-300%); }
+
+
+.navegacion {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.navegacion label {
+  width: 14px;
+  height: 14px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.navegacion label:hover {
+  background: white;
+  transform: scale(1.2);
+}
+
 
 
 
@@ -400,33 +531,31 @@ display: flex;
 /*----------------------------------------------------------------------------------------------- */
 /*                                            CONTACTE                                            */
 /*----------------------------------------------------------------------------------------------- */
-/*Es un fondo animado degradado que hace que la página de contacto se vea más viva y profesional.*/
-.seccion-contacto{
-     background-image: url("./Assets/cielo_estrellado.jpg");
-    background-size: 120%;       
-    background-position: 0% 50%;    
-    background-repeat: no-repeat;  
-    animation: fondo_contacte 15s ease-in-out infinite;
-   
-   
+
+.seccion-contacto {
+  padding: 4rem 3rem;
+
+  background-image: url("./Assets/cielo_estrellado.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+
+ 
 }
 
-@keyframes fondo_contacte {
-  0%, 100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-}
 
-/*Para el título principal de h2*/
+
 .seccion-contacto h2{
   color: white;
-   font-size: 50px;
-   letter-spacing: 3px;
-     text-shadow:0 0 5px rgba(1, 84, 68, 0.6);
+  font-size: 50px;
+  letter-spacing: 3px;
   font-weight: 300;
-  margin: 2rem;
+ 
   margin-bottom: 4rem;
+  text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.6),
+        0 0 12px rgba(255, 255, 255, 0.35);
 }
-/*Para los paragrafo*/
 .seccion-contacto p{
   color: white;
    font-size: 25px;
@@ -434,7 +563,7 @@ display: flex;
    text-shadow:0 0 5px rgba(1, 84, 68, 0.4);
   font-weight: 300;
 }
-/*Para los enlaceres*/
+
 .seccion-contacto a{
   color: white;
    font-size: 25px;
@@ -443,16 +572,15 @@ display: flex;
   font-weight: 300;
 }
 
-/*Para el estilo del formulario*/
+
 .contenedor-contacto{
   display:flex;
   justify-content: space-around;
   align-items: center;
   gap: 3rem;
   flex-wrap: wrap;
-  margin-bottom: 10rem;
 }
-/*Para el estilo del informacion*/
+
 .info-contacto{
   display: flex;
   flex-direction: column;
@@ -460,18 +588,16 @@ display: flex;
 }
 
 
-/*PMedidas del formulario*/
+
 .formulario-contacto{
   display:flex ;
   flex-direction: column;
   width: 30rem;
-  height: 40rem;
+  height: 30rem;
   border-radius: 25px;
   justify-content: center;
-  padding: 0.7rem;
-  
-  
-  background-color: rgba(1, 124, 110, 0.3);   
+  padding: 3rem;
+  background-color: rgb(231, 150, 0);   
   backdrop-filter: blur(5px);
   transition: 
     transform 0.2s ease,
@@ -479,14 +605,14 @@ display: flex;
     background-color 0.2s ease;
 
 }
-/*mapa y estilo del mapa*/
+
 .mapa-contacto {
   position: relative;
-  width:50rem;
-  height: 300px;  
+  width:35rem;
+  height:23rem;  
   border-radius: 16px;
   overflow: hidden;
-   box-shadow:0 0 5px rgba(1, 84, 68, 0.4);
+   box-shadow: 0 0 12px rgba(255, 255, 255, 0.645);
 
 }
 
@@ -499,7 +625,7 @@ display: flex;
   
 }
 
-  input,textarea {
+  input {
     padding: 0.7rem;
     border:none;
     background-color: #ffffff;
@@ -508,25 +634,38 @@ display: flex;
     margin-bottom: 2.5rem;     
 }
 
+textarea{
+    padding: 2rem;
+    margin-bottom: 2.5rem;     
+    border:none;
+    background-color: #ffffff;
+    border-radius: 6px;
+    transition: 0.2s ease;
+      
+
+}
+
 
  
 
 .formulario-contacto button{
-  align-self:  center;
+align-self:  center;
 display: flex;
 justify-content: center;
- height: 50px;
- width: 110px;
+ padding: 0.7rem;
  border:none;
- background-color: rgb(1, 124, 110);   
+ 
  border-radius: 6px;
  transition: 0.2s ease;
  margin-bottom: 2.5rem; 
- color: white;
+
 font-size:  18px; 
 letter-spacing: 2px;
 font-weight: 500;
+ background-color: white  ;
+color: rgb(0, 0, 79) ;
 }
+
 input[type="text"]:invalid,
 input[type="email"]:invalid,
 input[type="tel"]:invalid,
@@ -537,9 +676,11 @@ border: 1px solid rgb(182, 0, 0);
 }
 
 .formulario-contacto button:hover{
-   background-color: rgb(0, 68, 60);  
+    background-color: rgb(0, 0, 79) ;
+    color: white;
+  
 
-   cursor: pointer;
+cursor: pointer;
   transform: scale(1.02);    
 
 }
