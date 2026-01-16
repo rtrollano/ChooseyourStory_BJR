@@ -1,7 +1,7 @@
-use proyecto_bjr2;
+use proyecto_bjr;
 
 alter table characters
 modify column CharacterName varchar(80);
 
-alter table adventure
+alter table characters
 add column codAdventure int not null;

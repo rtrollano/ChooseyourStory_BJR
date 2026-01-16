@@ -1,30 +1,24 @@
-USE proyecto_bjr2;
+USE proyecto_bjr;
+
+INSERT INTO user (Username, Password) VALUES
+('Prueba', 'abc123.');
+
+INSERT INTO adventure (idAdventure, Name, Description) VALUES
+(1, 'Expedición al Sector Z-47','Una peligrosa misión espacial con decisiones críticas y encuentros inesperados.'),
+(2, 'La carta anónima','En un pequeño pueblo marcado por el silencio y las viejas lealtades, un suceso inesperado despierta\nsecretos enterrados durante años y obliga a enfrentar decisiones del pasado que nunca llegaron a saldarse.');
 
 INSERT INTO characters (idCharacter, CharacterName) VALUES
-(1, 'Capitán: Shelton'),
-(2, 'Ingeniero Jefe: Ramirez'),
-(3, 'Médico de la Nave: Tanaka'),
-(4, 'Especialista en Comunicaciones: Kane'),
-(5, 'Médico de Vuelo: Patel'),
-(6, 'Elias Mercer – detective veterano, metódico.'),
-(7, 'Cleo Bradford – joven analista de crímenes, intuitiva.'),
-(8, 'Dante Ruiz – detective rebelde que sigue su instinto.'),
-(9, 'Colin Drake – oficial de policía rutinario, de moral ambigua.');
+(1, 'Capitán: Shelton',1),
+(2, 'Ingeniero Jefe: Ramirez',1),
+(3, 'Médico de la Nave: Tanaka',1),
+(4, 'Especialista en Comunicaciones: Kane',1),
+(5, 'Médico de Vuelo: Patel',1),
+(6, 'Elias Mercer – detective veterano, metódico.',2),
+(7, 'Cleo Bradford – joven analista de crímenes, intuitiva.',2),
+(8, 'Dante Ruiz – detective rebelde que sigue su instinto.',2),
+(9, 'Colin Drake – oficial de policía rutinario, de moral ambigua.',2);
 
-INSERT INTO adventure (idAdventure, Name, Description, idCharacter, codAdventure) VALUES
-(1, 'Expedición al Sector Z-47','Una peligrosa misión espacial con decisiones críticas y encuentros inesperados.',1,1),
-(2, 'Expedición al Sector Z-47','Una peligrosa misión espacial con decisiones críticas y encuentros inesperados.',2,1),
-(3, 'Expedición al Sector Z-47','Una peligrosa misión espacial con decisiones críticas y encuentros inesperados.',3,1),
-(4, 'Expedición al Sector Z-47','Una peligrosa misión espacial con decisiones críticas y encuentros inesperados.',4,1),
-(5, 'Expedición al Sector Z-47','Una peligrosa misión espacial con decisiones críticas y encuentros inesperados.',5,1),
-(6, 'La carta anónima','En un pequeño pueblo marcado por el silencio y las viejas lealtades, un suceso inesperado despierta\nsecretos enterrados durante años y obliga a enfrentar decisiones del pasado que nunca llegaron a saldarse.',6,2),
-(7, 'La carta anónima','En un pequeño pueblo marcado por el silencio y las viejas lealtades, un suceso inesperado despierta\nsecretos enterrados durante años y obliga a enfrentar decisiones del pasado que nunca llegaron a saldarse.',7,2),
-(8, 'La carta anónima','En un pequeño pueblo marcado por el silencio y las viejas lealtades, un suceso inesperado despierta\nsecretos enterrados durante años y obliga a enfrentar decisiones del pasado que nunca llegaron a saldarse.',8,2),
-(9, 'La carta anónima','En un pequeño pueblo marcado por el silencio y las viejas lealtades, un suceso inesperado despierta\nsecretos enterrados durante años y obliga a enfrentar decisiones del pasado que nunca llegaron a saldarse.',9,2)
-;
-
-
-INSERT INTO game_states_master (idState, name, initial_value) VALUES
+INSERT INTO game_states_master (idState, Name, initial_value) VALUES
 (1, 'nave', 10),
 (2, 'tripulacion', 8),
 (3, 'Salud', 5);

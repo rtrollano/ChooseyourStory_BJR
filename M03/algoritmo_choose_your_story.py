@@ -1,3 +1,4 @@
+import random
 from funciones import *
 
 entrar_juego = True
@@ -25,6 +26,7 @@ while flag_main:
             print("No puedes empezar a jugar sin hacer login antes.")
             input("Pulsa enter para continuar.")
         else:
+            entrar_juego = True
             while entrar_juego:
                 # Funcio imprimir menú +  validació opcion
                 opcion = getOpt(textOpts="\n" + menu_logout + "\n",inputOptText="\nOpcion: ",rangeList=[1, 2, 3, 4, 5],exceptions=[])
@@ -35,7 +37,6 @@ while flag_main:
                     if opcion == 1:
                         flag_00 = False
                         flag_01 = True
-                        login = ""
 
                     # 2)Play
                     elif opcion == 2:
@@ -54,23 +55,21 @@ while flag_main:
 
                     # 5)Exit
                     elif opcion == 5:
-                        input("Saliendo...")
+                        print("Saliendo...")
                         flag_00 = False
                         entrar_juego = False
                         flag_main = False
 
 
-
             # ======================== 1)Logout ================================
                 while flag_01:
-                    print("1)Logout")
-                    input("Exit...")
+                    #print("1)Logout")
+                    input("Cerrando sesion de {}...".format(login))
                     flag_01 = False
-                    flag_00 = True
-
-            # ========================= 2)Play ================================
+                    entrar_juego = False
+                    login = ""
+                # ========================= 2)Play ================================
                 while flag_02:
-
 
                     # ------ Imprimir posibles AVENTURAS -------
                     getFormatedAdventures(get_adventures_with_chars())
@@ -93,7 +92,6 @@ while flag_main:
                     # ------- INICIO DEL JUEGO --------
                     choices = []  # Guardar decisiones del jugador
 
-                    import random
 
                     # Creas un diccionario de estados actuales con sus valores iniciales
                     game_states = {}
@@ -217,7 +215,7 @@ while flag_main:
                     #     if result == 'FINAL_NAVE':
                     #         print("PASO {} → La nave fue destruida. Fin de la misión.".format(step))
                     #
-                    #     elif result == 'FINAL_TRIPULACION':
+                    #     e4lif result == 'FINAL_TRIPULACION':
                     #         print("PASO {} → La tripulación no sobrevivió. Fin de la misión.".format(step))
                     #
                     #     else:
@@ -247,4 +245,5 @@ while flag_main:
                     flag_04 = False
                     flag_00 = True
     elif opc == 4:
-        flg_0 = False
+        print("Cerrando el programa...")
+        flag_main = False

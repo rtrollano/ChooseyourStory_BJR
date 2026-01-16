@@ -769,11 +769,11 @@ menu_principal = "\n" + "-".center(50,"-") +"\n"+"MENU PRINCIPAL".center(50,"*")
 inputOptText="\nElige tu opción: "
 menu_creausu = "\n\n\n" + "-".center(50,"-") +"\n"+"CREACION USUARIO".center(50,"*") + "\n" + "-".center(50,"-")
 menu_inises = "\n\n\n" + "-".center(50,"-") +"\n"+"INICIO SESION".center(50,"*") + "\n" + "-".center(50,"-")
-menu_pj = "\n\n\n" + "-".center(50,"-") +"\n"+"SELECCIONA UN PERSONAJE".center(50,"*") + "\n" + "-".center(50,"-") + "\n"
-cab_pj = "{:<5}{:>45}".format("ID","NOMBRE") + "\n" + "-".center(50,"-") + "\n"
+menu_ch = "\n\n\n" + "-".center(50,"-") +"\n"+"SELECCIONA UN PERSONAJE".center(50,"*") + "\n" + "-".center(50,"-") + "\n"
+cab_ch = "{:<5}{:>45}".format("ID","NOMBRE") + "\n" + "-".center(50,"-") + "\n"
 acabado = "-".center(50,"-") + "\n"
 datos = ""
-dicc_pj_recu = {}
+dicc_ch_recu = {}
 dicc_get_users = {}
 dicc_get_adventures = {}
 dicc_get_games = {}
@@ -906,10 +906,9 @@ def iniciar_sesion():
         return login
     else:
         print("El usuario y/o el password no son correctos.")
-        input("Pulsa enter para continuar")
 
 def select_character():
-    print(menu_pj+cab_pj)
+    print(menu_ch+cab_ch)
 
 def contiene_minus(pwd):
     for min in pwd:
@@ -939,18 +938,6 @@ def checkUser(user):
         print("El usuario debe tener una longitud comprendida entre 6 y 10 caracteres y ser alfanumérico.")
         return False
     return True
-
-def getCharacters():
-    datos = ""
-    conn = get_connection()
-    cursor = conn.cursor(dictionary=True)
-    cursor.execute("SELECT * FROM characters")
-    pj_recu = cursor.fetchall()
-    for pj in pj_recu:
-        datos = datos + "{:<5}{:>45}".format(pj["idCharacter"], pj["CharacterName"]) + "\n"
-        dicc_pj_recu[pj["idCharacter"]] = pj["CharacterName"]
-    print(menu_pj+cab_pj+datos+acabado)
-    print(dicc_pj_recu)
 
 def checkUserbdd(usu,pwd):
     conn = get_connection()
@@ -1046,16 +1033,13 @@ def getOpt(textOpts="",inputOptText="",rangeList=[],dictionary={},exceptions=[])
 ####### Volcar las tablas a diccionarios
 #############################################
 def getCharacters():
-    datos = ""
     conn = get_connection()
     cursor = conn.cursor(dictionary=True)
     cursor.execute("SELECT * FROM characters")
-    pj_recu = cursor.fetchall()
-    for pj in pj_recu:
-        datos = datos + "{:<5}{:>45}".format(pj["idCharacter"], pj["CharacterName"]) + "\n"
-        dicc_pj_recu[pj["idCharacter"]] = pj["CharacterName"]
-    print(menu_pj+cab_pj+datos+acabado)
-    print(dicc_pj_recu)
+    ch_recu = cursor.fetchall()
+    for ch in ch_recu:
+        dicc_ch_recu[ch["idCharacter"]] = ch["CharacterName"]
+    print(dicc_ch_recu)
 
 def getAdventures():
     conn = get_connection()
@@ -1064,5 +1048,36 @@ def getAdventures():
     adv_recu = cursor.fetchall()
     dicc_get_adventures = {}
     for adv in adv_recu:
-        dicc_get_adventures[adv["idAdventure"]] = { "Name": adv["Name"], "Description": adv["Description"], "idCharacter": adv["idCharacter"] }
+        dicc_get_adventures[adv["idAdventure"]] = { "Name": adv["Name"], "Description": adv["Description"]}
     print(dicc_get_adventures)
+
+def getGame_States_Master():
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM game_states_master")
+    gsm_recu = cursor.fetchall()
+    dicc_get_gsm = {}
+    for gsm in gsm_recu:
+        dicc_get_gsm[gsm["idState"]] = { "Name": gsm["Name"], "initial_value": gsm["initial_value"]}
+    print(dicc_get_gsm)
+
+def getAdventure_States():
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM adventure_states")
+    advs_recu = cursor.fetchall()
+    dicc_get_advs = {}
+    for advs in advs_recu:
+        dicc_get_advs[advs["idAdventure"]] = advs["idState"]
+    print(dicc_get_advs)
+
+def getAdventure_Context():
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM adventure_context")
+    advc_recu = cursor.fetchall()
+    dicc_get_advc = {}
+    for advc in advc_recu:
+        dicc_get_advc[advc["idAdventure"]] = advc["context_text"]
+    print(dicc_get_advc)
+

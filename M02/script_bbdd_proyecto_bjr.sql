@@ -1,17 +1,19 @@
-DROP SCHEMA IF EXISTS proyecto_bjr2;
-CREATE SCHEMA proyecto_bjr2 COLLATE = utf8_general_ci;
-USE proyecto_bjr2;
+DROP SCHEMA IF EXISTS proyecto_bjr;
+CREATE SCHEMA proyecto_bjr COLLATE = utf8_general_ci;
+USE proyecto_bjr;
 
-create table if not exists `characters` (
-	idCharacter int primary key auto_increment not null,
-    CharacterName varchar(45) 
-);
 create table if not exists `adventure` (
 	idAdventure int primary key auto_increment not null,
     Name varchar(45),
     Description varchar(2000),
     idCharacter int ,
     foreign key (`idCharacter`) references characters (`idCharacter`)
+);
+create table if not exists `characters` (
+	idCharacter int primary key auto_increment not null,
+    CharacterName varchar(45),
+    idAdventure int,
+    foreign key (`idAdventure`) references adventure (`idAdventure`)
 );
 create table if not exists `bystep_adventure` (
 	idByStep_Adventure int primary key auto_increment not null,
