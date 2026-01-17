@@ -21,14 +21,13 @@ INSERT INTO characters (idCharacter, CharacterName, codAdventure) VALUES
 
 INSERT INTO game_states_master (idState, Name, initial_value) VALUES
 (1, 'nave', 10),
-(2, 'tripulacion', 8),
-(3, 'Salud', 5);
+(2, 'tripulacion', 8);
 
 
 INSERT INTO adventure_states (idAdventure, idState) VALUES
 (1, 1),  -- 'nave'
-(1, 2),  -- 'tripulacion'
-(2, 3); -- 'salud'
+(1, 2);  -- 'tripulacion'
+
 
 
 INSERT INTO adventure_context (idAdventure, context_text) VALUES
