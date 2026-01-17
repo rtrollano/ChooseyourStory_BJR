@@ -5,9 +5,7 @@ USE proyecto_bjr;
 create table if not exists `adventure` (
 	idAdventure int primary key auto_increment not null,
     Name varchar(45),
-    Description varchar(2000),
-    idCharacter int ,
-    foreign key (`idCharacter`) references characters (`idCharacter`)
+    Description varchar(2000)
 );
 create table if not exists `characters` (
 	idCharacter int primary key auto_increment not null,
@@ -33,7 +31,7 @@ create table if not exists `game` (
 	idCharacter int not null,
 	idAdventure int not null,
     date datetime,
-    foreign key (`idCharacter`) references adventure (`idCharacter`),
+    foreign key (`idCharacter`) references characters (`idCharacter`),
     foreign key (`idUser`) references user(`idUser`),
     foreign key (`idAdventure`) references adventure (`idAdventure`)
 );

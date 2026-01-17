@@ -7,7 +7,7 @@ INSERT INTO adventure (idAdventure, Name, Description) VALUES
 (1, 'Expedición al Sector Z-47','Una peligrosa misión espacial con decisiones críticas y encuentros inesperados.'),
 (2, 'La carta anónima','En un pequeño pueblo marcado por el silencio y las viejas lealtades, un suceso inesperado despierta\nsecretos enterrados durante años y obliga a enfrentar decisiones del pasado que nunca llegaron a saldarse.');
 
-INSERT INTO characters (idCharacter, CharacterName) VALUES
+INSERT INTO characters (idCharacter, CharacterName, codAdventure) VALUES
 (1, 'Capitán: Shelton',1),
 (2, 'Ingeniero Jefe: Ramirez',1),
 (3, 'Médico de la Nave: Tanaka',1),
@@ -17,6 +17,7 @@ INSERT INTO characters (idCharacter, CharacterName) VALUES
 (7, 'Cleo Bradford – joven analista de crímenes, intuitiva.',2),
 (8, 'Dante Ruiz – detective rebelde que sigue su instinto.',2),
 (9, 'Colin Drake – oficial de policía rutinario, de moral ambigua.',2);
+
 
 INSERT INTO game_states_master (idState, Name, initial_value) VALUES
 (1, 'nave', 10),
@@ -278,7 +279,7 @@ INSERT INTO answers (idAnswer, idAdventure, idStep, description, resolution_answ
  
  
  
- INSERT INTO answers VALUES
+INSERT INTO answers VALUES
 -- ===== Paso 1 =====
 (101, 2, 1, 'Leer la carta cuidadosamente y analizar el contenido.',
  'Descubres pistas sobre la posible fuente de la carta. Confianza +1',
@@ -312,3 +313,5 @@ INSERT INTO answers (idAnswer, idAdventure, idStep, description, resolution_answ
 (108, 2, 2, 'Pedir ayuda a las autoridades.',
  'Las autoridades distraen la investigación con procedimientos burocráticos. Confianza -1',
  0, 0, 1, 3);
+ 
+ commit;
