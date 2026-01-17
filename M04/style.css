@@ -400,11 +400,13 @@ display: flex;
   background-color: #000;   
   padding: 0.5rem 0;          
 }
-.Personajes h1 {
+.Personajes h1,
+.paisajes-espacio h1 {
   color: white;
   text-align: center;
   font-size: 3rem;
-  letter-spacing: 4px;
+  letter-spacing: 6px;
+  font-weight: 300;
 
   text-shadow:
     0 0 6px rgba(255,255,255,0.4),
@@ -457,11 +459,10 @@ display: flex;
   height: 100%;
   flex-shrink: 0;
 
+
   display: flex;
   flex-direction: row;       
   align-items: center;
-
-
 
 
 }
@@ -524,7 +525,72 @@ display: flex;
   transform: scale(1.2);
 }
 
+.paisajes_aventura1,
+.paisajes_aventura2{
+  background-color: black;
+}
 
+.escenas-juego{
+  
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  color: white;
+
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.2)
+  );
+}
+
+.paisajes-espacio{
+  background-color: #000;
+  padding: 3rem;
+}
+.paisajes_aventura2 .diapositiva2,
+.paisajes_aventura2 .diapositiva3 {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.diapositiva2 {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  margin-bottom: 2rem;
+
+
+  display: flex;
+  flex-direction: row;       
+  align-items: center;
+
+
+}
+.diapositiva3 {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  
+
+
+  display: flex;
+  flex-direction: row;       
+  align-items: center;
+
+
+}
+
+.diapositiva2 img,
+.diapositiva3 img {
+  width: 20rem;
+  height: auto;
+  object-fit: cover;
+}
 
 
 
@@ -538,7 +604,7 @@ display: flex;
   background-image: url("./Assets/cielo_estrellado.jpg");
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: 50% 50%;
+  background-position: center;
 
  
 }
@@ -769,4 +835,67 @@ label{
   }
 }
 
+/*----------------------------------------------------------------------------------------------- */
+/*                                            About                                               */
+/*----------------------------------------------------------------------------------------------- */
+
+.about {
+    padding: 4rem 3rem;
+    background-image: url("./Assets/cielo_estrellado.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+    padding: 4rem 4rem;
+   
+
+}
+
+.team {
+    margin-bottom: 4rem;
+}
+
+.team h2,.promo h2 {
+  color: white;
+  font-size: 50px;
+  letter-spacing: 3px;
+  font-weight: 300;
+ 
+  margin-bottom: 4rem;
+  text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.6),
+        0 0 12px rgba(255, 255, 255, 0.35);
+}
+
+.team p {
+   color: white;
+    margin-bottom: 1.5rem;
+   
+}
+
+
+
+.team li {
+    color: white;
+    font-size: 1.1rem;
+    padding: 0.4rem 0;
+}
+
+
+
+.video {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
