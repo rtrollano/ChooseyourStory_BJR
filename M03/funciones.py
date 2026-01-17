@@ -1081,3 +1081,83 @@ def getAdventure_Context():
         dicc_get_advc[advc["idAdventure"]] = advc["context_text"]
     print(dicc_get_advc)
 
+def getAnswers():
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM answers")
+    ans_recu = cursor.fetchall()
+    dicc_get_ans = {}
+    for ans in ans_recu:
+        dicc_get_ans[ans["idAnswer"]] = { "idAdventure":ans["idAdventure"],"idStep":ans["idStep"],"description":ans["description"],"resolution_answer":ans["resolution_answer"],"crew_loss":ans["crew_loss"],"damage_ship":ans["damage_ship"],"salud":ans["salud"],"next_step":ans["next_step"]}
+    print(dicc_get_ans)
+
+def getAnswer_State_Effects():
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM answer_state_effects")
+    ase_recu = cursor.fetchall()
+    dicc_get_ase = {}
+    for ase in ase_recu:
+        dicc_get_ase[ase["idAnswer"]] = { "idAdventure":ase["idAdventure"],"idState":ase["idState"],"value":ase["value"]}
+    print(dicc_get_ase)
+
+def getAnswer_Bysteps_Adventure():
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM answers_bysteps_adventure")
+    aba_recu = cursor.fetchall()
+    dicc_get_aba = {}
+    for aba in aba_recu:
+        dicc_get_aba[aba["idAnswers_ByStep_Adventure"]] = { "idByStep_Adventure":aba["idByStep_Adventure"],"Description":aba["Description"],"Resolution_Answer":aba["Resolution_Answer"],"NextStep_Adventure":aba["NextStep_Adventure"]}
+    print(dicc_get_aba)
+
+def getByStep_Adventure():
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM bystep_adventure")
+    bsa_recu = cursor.fetchall()
+    dicc_get_bsa = {}
+    for bsa in bsa_recu:
+        dicc_get_bsa[bsa["idByStep_Adventure"]] = {"idAdventure": bsa["idAdventure"], "Description": bsa["Description"], "Final_Step": bsa["Final_Step"]}
+    print(dicc_get_bsa)
+
+def getGame():
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM game")
+    game_recu = cursor.fetchall()
+    dicc_get_game = {}
+    for game in game_recu:
+        dicc_get_game[game["idGame"]] = {"idUser": game["idUser"], "idCharacter": game["idCharacter"],"idAdventure": game["idAdventure"],"date": game["date"]}
+    print(dicc_get_game)
+
+def getSteps():
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM steps")
+    steps_recu = cursor.fetchall()
+    dicc_get_steps = {}
+    for steps in steps_recu:
+        dicc_get_steps[steps["idStep"]] = {"idAdventure": steps["idAdventure"], "description": steps["description"],"final_step": steps["final_step"]}
+    print(dicc_get_steps)
+
+def getReplay_Adventures():
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM replay_adventures")
+    rep_recu = cursor.fetchall()
+    dicc_get_rep = {}
+    for rep in rep_recu:
+        dicc_get_rep[rep["idReplay"]] = {"idUser": rep["idUser"],"idAdventure": rep["idAdventure"],"idCharacter": rep["idCharacter"], "adventure_name": rep["adventure_name"],"character_name": rep["character_name"]}
+    print(dicc_get_rep)
+
+def getUser():
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM user")
+    user_recu = cursor.fetchall()
+    dicc_get_user = {}
+    for user in user_recu:
+        dicc_get_user[user["idUser"]] = { "Username": user["Username"], "Password": user["Password"]}
+    print(dicc_get_user)
+
