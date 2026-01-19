@@ -599,12 +599,13 @@ display: flex;
 
 .instrucciones{
   background-color:rgb(0, 0, 28);
+  padding: 0 3rem;
 }
+
 
 .introduccion-instrucciones{
   display: flex;
-  flex-direction: column;
-  padding: 1rem 2rem;
+  flex-direction: column; 
  
 }
 .imagenes-texto{
@@ -614,7 +615,8 @@ display: flex;
 }
 
 
-.imagenes-texto h3{
+.imagenes-texto h3, 
+.mecanica-juego1 h3{
   color: white;
   font-weight: 300;
   text-shadow:
@@ -627,16 +629,18 @@ display: flex;
   margin-top: 5rem;
 }
 
-.introduccion-instrucciones h1{
+.introduccion-instrucciones h1,
+.mecanica-juego1 h1{
   color: white;
- 
   font-size: 3rem;
   letter-spacing: 6px;
   font-weight: 300;
-
   text-shadow:
     0 0 6px rgba(255,255,255,0.4),
     0 0 12px rgba(255,255,255,0.2);
+    margin: 0;
+    padding: 3rem 0;
+    
 }
 
 
@@ -655,7 +659,6 @@ display: flex;
     height: auto;
     border-radius: 16px;
     overflow: hidden;
-   
 
 }
 
@@ -698,7 +701,88 @@ width: 100%;
 }
 
 
+/* --------------------- mecánica --------------------- */
+.mecanica-juego1 {
+    padding: 0 3rem;
+    background-color:rgb(0, 0, 15);
+    
+}
 
+.contenedor-mecanica {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;   
+}
+
+
+.tarjeta-mecanica {
+    width: 48%;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;       
+}
+
+
+.imagen-mecanica {
+    width: 100%;               
+    max-width: 500px;         
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.imagen-mecanica img {
+    width: 100%;
+    height: 280px;             
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 1.5rem;
+
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+
+.tarjeta-mecanica h3 {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+
+.tarjeta-mecanica:hover img {
+    transform: scale(1.1);
+    opacity: 0.3;
+}
+
+.tarjeta-mecanica:hover .overlay {
+    opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+    .tarjeta-mecanica {
+        width: 100%;
+    }
+}
 
 
 
