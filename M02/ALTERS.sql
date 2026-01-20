@@ -10,3 +10,11 @@ ALTER TABLE characters
 ADD CONSTRAINT fk_characters_codAdventure
 FOREIGN KEY (codAdventure)
 REFERENCES adventure (idAdventure);
+
+ALTER TABLE choices
+DROP FOREIGN KEY choices_ibfk_3;
+
+
+ALTER TABLE choices
+ADD CONSTRAINT choices_ibfk_3
+FOREIGN KEY (idAnswers_ByStep_Adventure) REFERENCES answers(idAnswer);
