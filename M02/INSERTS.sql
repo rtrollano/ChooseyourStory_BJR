@@ -20,8 +20,8 @@ INSERT INTO characters (idCharacter, CharacterName, codAdventure) VALUES
 
 
 INSERT INTO game_states_master (idState, Name, initial_value) VALUES
-(1, 'nave', 10),
-(2, 'tripulacion', 8);
+(1, 'nave', 5),
+(2, 'tripulacion', 5);
 
 
 INSERT INTO adventure_states (idAdventure, idState) VALUES
