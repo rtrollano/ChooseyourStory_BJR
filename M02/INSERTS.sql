@@ -139,7 +139,7 @@ INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answ
 
 
 
-INSERT INTO steps (idAdventure, idStep, Description, Final_Step)
+INSERT INTO steps (idAdventure, idStep, description, final_step)
 VALUES
 (1, 999, 'FINAL_TRIPULACION', 1),
 (1, 1000, 'FINAL_NAVE', 1);
@@ -151,7 +151,8 @@ VALUES
 
 
 -- Aventura 2, Paso 1
-INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answer, crew_loss, damage_ship, NextStep_Adventure) VALUES
+INSERT INTO answers (idAnswer, idAdventure, idStep, description, resolution_answer, crew_loss, damage_ship, next_step)
+VALUES
 (1,2, 1, 'Investigar personalmente los restos del local para intentar averiguar el origen de la explosión.',
  'Mientras inspeccionas el lugar, descubres una habitación oculta llena de documentación parcialmente quemada.', 0, 0, 2),
 (2,2, 1, 'Investigar personalmente los restos del local para intentar averiguar el origen de la explosión.',
@@ -162,7 +163,8 @@ INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answ
  'Las autoridades controlan la situación y el asunto se enfría rápidamente, aunque algunos vecinos muestran un nerviosismo evidente.', 0, 0, 3);
 
 -- Aventura 2, Paso 2
-INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answer, crew_loss, damage_ship, NextStep_Adventure) VALUES
+INSERT INTO answers (idAnswer, idAdventure, idStep, description, resolution_answer, crew_loss, damage_ship, next_step)
+VALUES
 (5,2, 2, 'Revisar la documentación encontrada antes de que alguien más llegue al lugar.',
  'Entre los papeles aparecen nombres, fechas y referencias a envíos poco claros.', 0, 0, 4),
 (6,2, 2, 'Revisar la documentación encontrada antes de que alguien más llegue al lugar.',
@@ -173,7 +175,8 @@ INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answ
  'Al salir apresuradamente, pierdes parte del material sin darte cuenta.', 0, 0, 3);
 
 -- Aventura 2, Paso 3
-INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answer, crew_loss, damage_ship, NextStep_Adventure) VALUES
+INSERT INTO answers (idAnswer, idAdventure, idStep, description, resolution_answer, crew_loss, damage_ship, next_step)
+VALUES
 (9,2, 3, 'Hablar con vecinos que vivieron el cierre del negocio.',
  'Algunos vecinos mencionan rumores sobre enfermedades inexplicables y acuerdos de silencio que tuvieron lugar años atrás.', 0, 0, 4),
 (10,2, 3, 'Hablar con vecinos que vivieron el cierre del negocio.',
@@ -184,7 +187,8 @@ INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answ
  'No detectas nada fuera de lo normal y pierdes tiempo valioso.', 0, 0, 4);
 
 -- Aventura 2, Paso 4
-INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answer, crew_loss, damage_ship, NextStep_Adventure) VALUES
+INSERT INTO answers (idAnswer, idAdventure, idStep, description, resolution_answer, crew_loss, damage_ship, next_step)
+VALUES
 (13,2, 4, 'Abrir el paquete y examinar su contenido.',
  'Encuentras informes médicos antiguos y documentos antiguos que sugieren sin gran claridad que alguien encubrio esos informes para esconder la verdad.', 0, 0, 5),
 (14,2, 4, 'Abrir el paquete y examinar su contenido.',
@@ -195,7 +199,8 @@ INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answ
  'Alguien parece notar tu interés y comienzas a sentirte observado. Dejas el paquete en casa y sales en busca de aire fresco y un poco de claridad.', 0, 0, 5);
 
 -- Aventura 2, Paso 5
-INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answer, crew_loss, damage_ship, NextStep_Adventure) VALUES
+INSERT INTO answers (idAnswer, idAdventure, idStep, description, resolution_answer, crew_loss, damage_ship, next_step)
+VALUES
 (17,2, 5, 'Intentar perder a la persona que te sigue.',
  'Logras despistarlo, pero confirmas que alguien vigila tus movimientos.', 0, 0, 6),
 (18,2, 5, 'Intentar perder a la persona que te sigue.',
@@ -206,7 +211,8 @@ INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answ
  '“Te asesta un golpe que te derriba. Des del suelo, ves cómo la persona que te seguía tropieza con un bordillo y cae al suelo. Rápidamente se reincorpora cojeando, y desaparece entre los callejones estrechos mientras tu corazón late con fuerza.', 0, 0, 13);
 
 -- Aventura 2, Paso 6
-INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answer, crew_loss, damage_ship, NextStep_Adventure) VALUES
+INSERT INTO answers (idAnswer, idAdventure, idStep, description, resolution_answer, crew_loss, damage_ship, next_step)
+VALUES
 (21,2, 6, 'Visitar a tu padre en la residencia.',
  'Te habla de decisiones pasadas y errores, pero evita entrar en detalles.', 0, 0, 7),
 (22,2, 6, 'Visitar a tu padre en la residencia.',
@@ -217,7 +223,8 @@ INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answ
  'Al día siguiente recibes noticias preocupantes desde la residencia.', 0, 0, 11);
 
 -- Aventura 2, Paso 7
-INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answer, crew_loss, damage_ship, NextStep_Adventure) VALUES
+INSERT INTO answers (idAnswer, idAdventure, idStep, description, resolution_answer, crew_loss, damage_ship, next_step)
+VALUES
 (25,2, 7, 'Leer la carta encontrada entre las pertenencias de tu padre.',
  'La carta menciona promesas, silencios y una culpa que nunca se reparó.', 0, 0, 11),
 (26,2, 7, 'Leer la carta encontrada entre las pertenencias de tu padre.',
@@ -228,7 +235,8 @@ INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answ
  'Alguien parece interesado en esa carta más que tú.', 0, 0, 9);
 
 -- Aventura 2, Paso 8
-INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answer, crew_loss, damage_ship, NextStep_Adventure) VALUES
+INSERT INTO answers (idAnswer, idAdventure, idStep, description, resolution_answer, crew_loss, damage_ship, next_step)
+VALUES
 (29,2, 8, 'Hablar públicamente con algunas familias afectadas.',
  'El pueblo comienza a dividirse y surgen bandos.', 0, 0, 12),
 (30,2, 8, 'Hablar públicamente con algunas familias afectadas.',
@@ -241,7 +249,8 @@ INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answ
 
 
 -- Aventura 2, Paso 9
-INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answer, crew_loss, damage_ship, NextStep_Adventure) VALUES
+INSERT INTO answers (idAnswer, idAdventure, idStep, description, resolution_answer, crew_loss, damage_ship, next_step)
+VALUES
 (33,2, 9, 'Hablar con el médico del centro de salud.',
  'Te menciona patrones de enfermedades sin causa clara.', 0, 0, 12),
 (34,2, 9, 'Hablar con el médico del centro de salud.',
@@ -252,7 +261,8 @@ INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answ
  'Pierdes su rastro y alertas a alguien.', 0, 0, 11);
 
 -- Aventura 2, Paso 10
-INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answer, crew_loss, damage_ship, NextStep_Adventure) VALUES
+INSERT INTO answers (idAnswer, idAdventure, idStep, description, resolution_answer, crew_loss, damage_ship, next_step)
+VALUES
 (37,2, 10, 'Cruzar toda la información recopilada.',
  'Empiezas a ver un patrón inquietante.', 0, 0, 12),
 (38,2, 10, 'Cruzar toda la información recopilada.',
@@ -263,7 +273,8 @@ INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answ
  'Tomas una decisión precipitada.', 0, 0, 11);
 
 -- Aventura 2, Paso 11
-INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answer, crew_loss, damage_ship, NextStep_Adventure) VALUES
+INSERT INTO answers (idAnswer, idAdventure, idStep, description, resolution_answer, crew_loss, damage_ship, next_step)
+VALUES
 (41,2, 11, 'Ignorar las amenazas recibidas.',
  'El riesgo aumenta, pero sigues adelante.', 0, 0, 12),
 (42,2, 11, 'Ignorar las amenazas recibidas.',
@@ -274,7 +285,8 @@ INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answ
  'Te expones demasiado.', 0, 0, 12);
 
 -- Aventura 2, Paso 12 (Finales)
-INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answer, crew_loss, damage_ship, NextStep_Adventure) VALUES
+INSERT INTO answers (idAnswer, idAdventure, idStep, description, resolution_answer, crew_loss, damage_ship, next_step)
+VALUES
 (45,2, 12, 'Decides revelar toda la verdad al público a través de un amigo propietario del periódico provincial.',
  'Decides publicar toda la información a través del periódico provincial.\nRevelas cómo tu padre y algunos trabajadores permitieron que los químicos dañaran a varias familias y cómo los hermanos Brunde, (Hugo Brunde – Médico del pueblo y Lorenzo Brunde – Empresario y gestor de tierras),\ntras la muerte de sus padres, extorsionaron a las ex trabajadoras para quedarse con sus tierras. El pueblo estalla en debates y conflictos; unos exigen justicia mientras otros sienten traición.\nAun así, la luz de la verdad permite que algunas víctimas obtengan reconocimiento y apoyo. Has expuesto todo, pero el precio ha sido la paz del pueblo.', 0, 0, NULL),
 (46,2, 12, 'Decides revelar toda la verdad al público a través de un amigo propietario del periódico provincial.',
@@ -285,7 +297,8 @@ INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answ
  'Decides guardar el secreto y abandonar Valdemora, llevándote contigo la carga de todo lo ocurrido.\nDurante dos años intentas rehacer tu vida lejos del pueblo, con la memoria de los abusos de los hermanos Brunde y las injusticias contra las familias ex trabajadoras siempre presentes.\nUn día, recibes una llamada de un amigo propietario del diario provincial: al día siguiente se publicará toda la verdad. Los hermanos seguirán enfrentando las consecuencias, y finalmente se conocerá el papel de tu padre y de quienes silenciaron los daños.\nTe quedas en silencio, observando cómo el tiempo revela lo que tú decidiste proteger.', 0, 0, NULL);
 
 -- Aventura 2, Paso 13
-INSERT INTO answers (idAnswer, idAdventure, idStep, Description, Resolution_Answer, crew_loss, damage_ship, NextStep_Adventure) VALUES
+INSERT INTO answers (idAnswer, idAdventure, idStep, description, resolution_answer, crew_loss, damage_ship, next_step)
+VALUES
 (49,2, 13, 'Decides ir al centro médico del pueblo para que te revisen',
  'El médico más respetado del pueblo te atiende, pero hoy parece estar de mal humor.\nApenas te examina y te despacha con una receta, sin comprobar tu estado real, dejándote con dudas sobre su profesionalidad.', 0, 0, 6),
 (50,2, 13, 'Decides ir al centro médico del pueblo para que te revisen',
