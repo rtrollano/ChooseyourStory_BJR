@@ -38,7 +38,7 @@ Confiados en el éxito de la expedición y en la solidez de su entrenamiento, la
 
 
 
-INSERT INTO steps (id_step, id_adventure, description, final_step) VALUES
+INSERT INTO steps (idStep, idAdventure, description, final_step) VALUES
 (1, 1, 'Durante las primeras horas del viaje, un ruido metálico irregular comienza a escucharse desde una de las secciones externas de la nave.\n
 Los sensores no detectan nada concluyente, pero la tripulación empieza a inquietarse.', 0),
 (2, 1, 'Tras evaluar la situación, la tripulación debate si aterrizar en un planeta cercano para revisar sistemas y descansar,\no continuar el viaje sin desviarse del plan original.', 0),
@@ -55,7 +55,7 @@ Los sensores no detectan nada concluyente, pero la tripulación empieza a inquie
 
 
 
-INSERT INTO steps (id_step, id_adventure, description, final_step) VALUES
+INSERT INTO steps (idStep, idAdventure, description, final_step) VALUES
 (1, 2, 'Una explosión sacude las afueras del pueblo de madrugada mientras vas de camino a casa.\nAl acercarte al lugar, reconoces un viejo local cerrado desde hace casi dos década, ahora reducido a escombros.
 El edificio perteneció a una familia influyente y reservada.\nMientras rodeas los restos, un olor extraño se queda suspendido en el aire y te obliga a detenerte.', 0),
 (2, 2, 'Permaneces cerca del lugar mientras la zona aún está desierta. El silencio es incómodo y cada sonido parece fuera de lugar.\nAlgo en ese sitio no encaja del todo, pero no logras concretar qué es exactamente.', 0),
