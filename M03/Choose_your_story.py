@@ -257,56 +257,13 @@ while flag_main:
                            opcion = int(opcion)
 
                            if opcion == 1:
-                               conn = get_connection()
-                               cursor = conn.cursor(dictionary=True)
 
-                               cursor.execute("""
-                                   SELECT 
-                                        bsa.idAdventure AS idAdventure,
-                                        adv.Name AS adventure_name,
-                                        bsa.idByStep_Adventure AS idStep,
-                                        bsa.Description AS step_description,
-                                        ans.idAnswers_ByStep_Adventure AS idAnswer,
-                                        ans.Description AS answer_description,
-                                        COUNT(c.idAnswers_ByStep_Adventure) AS times_selected
-                                    FROM choices c
-                                    JOIN answers_bysteps_adventure ans 
-                                        ON ans.idAnswers_ByStep_Adventure = c.idAnswers_ByStep_Adventure
-                                    JOIN bystep_adventure bsa 
-                                        ON bsa.idByStep_Adventure = ans.idByStep_Adventure
-                                    JOIN adventure adv 
-                                        ON adv.idAdventure = bsa.idAdventure
-                                    GROUP BY ans.idAnswers_ByStep_Adventure
-                                    ORDER BY times_selected DESC
-                                    LIMIT 3;
-                               """)
+                               # Recoger datos de las tablas (RESPUESTAS más usadas)
+                               rows = get_most_used_answers_per_adventure(6)
 
-                               rows = cursor.fetchall()
+                               # Formatear la impresion de los datos
+                               print_most_used_answers(rows)
 
-                               cursor.close()
-                               conn.close()
-
-                               print("=" * 155)
-                               titulo = "Respuestas más utilizadas"
-                               print(titulo.center(155))
-                               print("=" * 155)
-
-                               header = "{:<30}{:<30}{:<30}{:<30}{:<5}".format(
-                                   "ID AVENTURA - NOMBRE", "ID PASO - DESCRIPCION", "ID RESPUESTA - DESCRIPCION", "",
-                                   "NUMERO VECES SELECCIONADA")
-                               print(header)
-                               print("*" * 155)
-
-                               for row in rows:
-                                   # Puedes formatear los campos como quieras
-                                   adventure_info = "{} - {}".format(row['idAdventure'], row['adventure_name'])
-                                   step_info = "{} - {}".format(row['idStep'], row['step_description'])
-                                   answer_info = "{} - {}".format(row['idAnswer'], row['answer_description'])
-                                   times_selected = row['times_selected']
-
-                                   print("{:<20}{:<30}{:<30}{:<5}".format(adventure_info, step_info, answer_info,times_selected))
-
-                               input("\nPresiona ENTER para continuar...\n")
 
                            elif opcion == 2:
 

@@ -944,3 +944,84 @@ def recuDatosReplay(idGame):
     cursor.execute(sql, (idGame,))
     datos_replay = cursor.fetchall()
     return datos_replay
+
+
+def get_most_used_answers_per_adventure(limit=6):
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+    sql = """
+    SELECT
+        s.idAdventure,
+        adv.Name AS adventure_name,
+        s.idStep,
+        s.description AS step_description,
+        a.idAnswer,
+        a.description AS answer_description,
+        COUNT(*) AS times_selected
+    FROM choices c
+    JOIN answers a
+        ON a.idAnswer = c.idDecision
+    JOIN steps s
+        ON s.idStep = c.currentStep
+    JOIN adventure adv
+        ON adv.idAdventure = s.idAdventure
+    GROUP BY 
+        s.idAdventure, adv.Name, s.idStep, s.description, a.idAnswer, a.description
+    ORDER BY times_selected DESC
+    LIMIT %s;
+    """
+    cursor.execute(sql, (limit,))
+    rows = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return rows
+
+
+
+def print_most_used_answers(rows):
+    # Anchos de columnas más grandes para mayor separación
+    width_adventure = 35
+    width_step = 40
+    width_answer = 30
+    width_times = 5
+
+    titulo = "Respuestas más utilizadas"
+    print("=" * 160 + "\n" + titulo.center(160) + "\n" + "=" * 160)
+
+    # Cabecera
+    print(
+        "{:<35}{:<50}{:<50}{:<5}".format("ID AVENTURA - NOMBRE", "ID PASO - DESCRIPCIÓN", "ID RESPUESTA - DESCRIPCIÓN","NUMERO VECES SELECCIONADA") + "\n" + "*" * 160)
+
+    for row in rows:
+        # Dividir el texto largo en varias líneas
+        step_lines = textwrap.wrap(row['step_description'], width_step)
+        answer_lines = textwrap.wrap(row['answer_description'], width_answer)
+
+        # Determinar cuántas líneas necesitamos imprimir
+        num_step_lines = len(step_lines)
+        num_answer_lines = len(answer_lines)
+
+        # Recorremos desde 0 hasta el número máximo de líneas manualmente
+        i = 0
+        while i < num_step_lines or i < num_answer_lines:
+            # Mostrar ID solo en la primera línea del bloque
+            if i == 0:
+                adventure_text = "{} - {}".format(row['idAdventure'], row['adventure_name'])
+                times_text = str(row['times_selected'])
+                step_text = "{} - {}".format(row['idStep'], step_lines[i]) if i < num_step_lines else ""
+                answer_text = "{} - {}".format(row['idAnswer'], answer_lines[i]) if i < num_answer_lines else ""
+            else:
+                adventure_text = ""
+                times_text = ""
+                step_text = step_lines[i] if i < num_step_lines else ""
+                answer_text = answer_lines[i] if i < num_answer_lines else ""
+
+            print("{:<35}{:<50}{:<50}{:<5}".format(adventure_text,step_text, answer_text,times_text))
+            i += 1
+
+        # Salto de línea entre bloques
+        print()
+
+    input("\nPresiona ENTER para continuar...\n")
