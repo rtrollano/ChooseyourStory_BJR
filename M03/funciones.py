@@ -293,27 +293,22 @@ def getFormatedAnswers(idAnswer, text, lenLine, leftMargin):
 def getOpt(textOpts="", inputOptText="", rangeList=[], dictionary={}, exceptions=[]):
     # Mostrar menu
     print(textOpts)
-
     while True:
         opt = input(inputOptText)
-
         # Caso excepciones (aceptar tal cual)
         if opt in exceptions:
             return opt
-
         # Si es numero
         if opt.isdigit():
             opt_int = int(opt)
-
             # Valido por lista
             if opt_int in rangeList:
                 return opt_int
-
             # Valido por diccionario
             if dictionary and opt_int in dictionary.keys():
                 return opt_int
 
-        print("Invalid option")
+        print("El valor introducido no es una opción válid")
 
 
 
