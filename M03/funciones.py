@@ -746,25 +746,25 @@ def getUserIds():
         lista[1].append(dicc_get_users[usuario]["idUser"])
     print(lista)
 
-def getOpt(textOpts="",inputOptText="",rangeList=[],dictionary={},exceptions=[]):
-    print(textOpts)
-    while True:
-        res = input(inputOptText)
-        try:
-            if res.isdigit():
-                assert int(res) <= rangeList[-1], "El número introducido no es una opción válida\n\n"
-                if rangeList.count(int(res)) >= 0:
-                 #   print("Accedemos a la opción -> {} de la lista ".format(res))
-                    return  int(res)
-            elif exceptions.count(res) > 0 or res == "-1":
-                #print("Se ha escogido la opción -> {} de las excepciones ".format(res))
-                return res
-            else:
-                print("Res es = a {}".format(res))
-                raise AssertionError("El valor introducido no es una opción válida\n\n")
-        except AssertionError as p:
-            print(p)
-            return p
+# def getOpt(textOpts="",inputOptText="",rangeList=[],dictionary={},exceptions=[]):
+#     print(textOpts)
+#     while True:
+#         res = input(inputOptText)
+#         try:
+#             if res.isdigit():
+#                 assert int(res) <= rangeList[-1], "El número introducido no es una opción válida\n\n"
+#                 if rangeList.count(int(res)) >= 0:
+#                  #   print("Accedemos a la opción -> {} de la lista ".format(res))
+#                     return  int(res)
+#             elif exceptions.count(res) > 0 or res == "-1":
+#                 #print("Se ha escogido la opción -> {} de las excepciones ".format(res))
+#                 return res
+#             else:
+#                 print("Res es = a {}".format(res))
+#                 raise AssertionError("El valor introducido no es una opción válida\n\n")
+#         except AssertionError as p:
+#             print(p)
+#             return p
 
 #############################################
 ####### Volcar las tablas a diccionarios
