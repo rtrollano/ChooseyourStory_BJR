@@ -34,7 +34,7 @@ INSERT INTO adventure_context (idAdventure, context_text) VALUES
 (1, 'Tras años de exhaustiva preparación, cinco tripulantes de la Base Helios se disponen a embarcarse en una misión sin precedentes: explorar el sector Z-47, una región del espacio jamás cartografiada.
 Los estudios preliminares sugieren que se trata de una zona rica en recursos energéticos capaces de transformar para siempre la forma en que la Tierra produce y utiliza la energía.
 Confiados en el éxito de la expedición y en la solidez de su entrenamiento, la nave Astraeon despega sin incidentes, adentrándose en lo desconocido…'),
-(2, 'Texto de introducción para la aventura 2');
+(2, 'Todo comienza un martes de abril, a las dos de la madrugada, en Eldralva, un pueblo aislado de apenas setecientos habitantes.\nRodeado de campos y antiguas explotaciones agrícolas, es un lugar donde todos se conocen, los silencios pesan más que las palabras y el pasado nunca termina de desaparecer.');
 
 
 
@@ -308,3 +308,16 @@ VALUES
 (52,2, 13, 'Decides no ir al médico y quedarte descansando en casa',
  'Pasas la tarde descansando y notas que el dolor disminuye.\nAprovechas para revisar mentalmente los sucesos recientes y empiezas a conectar pequeños detalles que antes habías ignorado', 0, 0, 9);
 
+INSERT INTO adventure_characters (idAdventure, idCharacter) VALUES
+(1, 1),
+(1, 2),
+(1, 3),
+(1, 4),
+(1, 5);
+
+
+INSERT INTO adventure_characters (idAdventure, idCharacter) VALUES
+(2, 6),
+(2, 7),
+(2, 8),
+(2, 9);
