@@ -497,21 +497,21 @@ def getFormatedTable(queryTable, title=""):
 # =========================================================================
 menu_logout = "\n" + "-".center(50,"-") +"\n"+"AVENTURA".center(50,"*") + "\n" + "-".center(50,"-") + "\n" + "1)Cerrar Sesión\n2)Jugar\n3)Rejugar Aventura\n4)Reportes\n5)Salir"
 menu_report = "1)Respuestas más utilizadas\n2)Jugador que más veces ha jugado\n3)Aventuras jugadas por el jugador  \n4)Back"
-menu_principal = "\n" + "-".center(50,"-") +"\n"+"MENU PRINCIPAL".center(50,"*") + "\n" + "-".center(50,"-") + "\n" + "1)Crear Usuario\n2)Iniciar Sesión\n3)Mostrar aventuras\n4)Salir\n"
+menu_principal = "\n" + "-".center(50,"-") +"\n"+"MENU PRINCIPAL".center(50,"*") + "\n" + "-".center(50,"-") + "\n" + "1)Crear Usuario\n2)Iniciar Sesión\n3)Salir\n"
 inputOptText="\nElige tu opción: "
 menu_creausu = "\n\n\n" + "-".center(50,"-") +"\n"+"CREACION USUARIO".center(50,"*") + "\n" + "-".center(50,"-")
 menu_inises = "\n\n\n" + "-".center(50,"-") +"\n"+"INICIO SESION".center(50,"*") + "\n" + "-".center(50,"-")
 menu_ch = "\n\n\n" + "-".center(50,"-") +"\n"+"SELECCIONA UN PERSONAJE".center(50,"*") + "\n" + "-".center(50,"-") + "\n"
 cab_ch = "{:<5}{:>45}".format("ID","NOMBRE") + "\n" + "-".center(50,"-") + "\n"
+enu_rep = "\n\n\n" + "-".center(160,"-") +"\n"+"REJUGAR AVENTURA".center(160,"*") + "\n" + "-".center(160,"-") + "\n"
+cab_rep = "{:<15}{:<30}{:<25}{:<30}{:<60}".format("ID_JUEGO","FECHA_INICIO","USUARIO","NOMBRE_AVENTURA","NOMBRE_PERSONAJE") + "\n"
 acabado = "-".center(50,"-") + "\n"
-datos = ""
+acabado_rep = "-".center(160,"-") + "\n"
 dicc_ch_recu = {}
 dicc_get_users = {}
 dicc_get_adventures = {}
 dicc_get_games = {}
 dicc_get_choices = {}
-login = ""
-
 
 
 
@@ -807,6 +807,7 @@ def insertChoice(current, id_decision):
     conn.commit()
 
 def replay():
+    datos = ""
     conn = get_connection()
     cursor = conn.cursor(dictionary=True)
     cursor.execute("""select g.idGame, g.date, u.Username, a.Name, c.CharacterName
@@ -816,6 +817,10 @@ def replay():
     and g.idAdventure = a.idAdventure
     order by idGame asc;""")
     replay_list = cursor.fetchall()
+    for rep in replay_list:
+        datos = datos + "{:<15}{:<30}{:<25}{:<30}{:<60}".format(rep["idGame"], str(rep["date"]), rep["Username"], rep["Name"], rep["CharacterName"]) + "\n"
+    tabla_replay = menu_rep+cab_rep+acabado_rep+datos+acabado_rep
+    print(tabla_replay)
     return replay_list
 
 def recuDatosReplay(idGame):
@@ -832,8 +837,27 @@ def recuDatosReplay(idGame):
     and ch.idDecision = ans.idAnswer
     ORDER BY ans.idAnswer;"""
     cursor.execute(sql, (idGame,))
-    datos_replay = cursor.fetchall()
-    return datos_replay
+    datos_replay_list = cursor.fetchall()
+    if aventuraPorJuego(idGame) == 1:
+        for datrep in datos_replay_list:
+            print("Paso elegido: {:<60}\nRespuesta: {:<60}\n".format(datrep["description"],datrep["resolution_answer"]))
+            input("")
+        print("FIN")
+    return datos_replay_list
+
+
+def aventuraPorJuego(idGame):
+    conn = get_connection()
+    cursor = conn.cursor(dictionary=True)
+    sql = "Select a.description, a.name from game g, adventure a where g.idGame = %s and g.idAdventure = a.idAdventure"
+    cursor.execute(sql, (idGame,))
+    recu_cod_adv = cursor.fetchall()
+    if recu_cod_adv != []:
+        print("\nLa aventura que vamos a revivir es la de {}:\n{}\nA continuación reviviremos las elecciones elegidas pulsando Enter:\n".format(recu_cod_adv[0]["name"], recu_cod_adv[0]["description"]))
+        return 1
+    else:
+        print("La opción escogida es incorrecta")
+        return 0
 
 
 def get_most_used_answers_per_adventure(limit=6):
