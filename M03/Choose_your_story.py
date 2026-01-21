@@ -7,7 +7,7 @@ flag_main = True
 login = ""
 
 while flag_main:
-    opc = getOpt(menu_principal,inputOptText,[1,2,3,4], exceptions=['w','e',-1])
+    opc = getOpt(menu_principal,inputOptText,[1,2,3], exceptions=['w','e',-1])
 
     # 1)Crear Usuario
     if opc == 1:
@@ -247,8 +247,15 @@ while flag_main:
                    # ==================== 3)Replay Adventure ==========================
                    elif opcion == 3:
                        print("3)Rejugar Aventura")
-                       input("Saliendo...")
+                        #Mostramos tabla con los datos de las aventuras registradas
+                       replay()
 
+                       opc = input("Elige una aventura -> ")
+                       while opc.isalpha():
+                           opc = input("Incorrecto. Introduce un valor numérico por favor -> ")
+                       opc = int(opc)
+
+                       recuDatosReplay(opc)
                    # ======================== 4)Reports ================================
                    elif opcion == 4:
                        report = True
