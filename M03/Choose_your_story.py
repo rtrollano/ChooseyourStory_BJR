@@ -233,7 +233,6 @@ while flag_main:
 
 
                        played_choices = getChoices(choices)
-                       print(played_choices)
 
 
                    # ==================== 3)Replay Adventure ==========================
