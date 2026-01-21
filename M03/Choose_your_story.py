@@ -235,14 +235,6 @@ while flag_main:
                        played_choices = getChoices(choices)
                        print(played_choices)
 
-                       # --- Guardar todas las decisiones y finales en la BBDD ---
-                       # --- Guardar todas las decisiones y finales en la BBDD ---
-                       # --- Guardar todas las decisiones y finales en la BBDD ---
-                       # --- Guardar todas las decisiones y finales en la BBDD ---
-                       # --- Guardar todas las decisiones y finales en la BBDD ---
-                       # --- Guardar todas las decisiones y finales en la BBDD ---
-
-
 
                    # ==================== 3)Replay Adventure ==========================
                    elif opcion == 3:
@@ -270,7 +262,6 @@ while flag_main:
 
                                # Formatear la impresion de los datos
                                print_most_used_answers(rows)
-
 
                            elif opcion == 2:
 
