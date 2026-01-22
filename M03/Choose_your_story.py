@@ -61,8 +61,6 @@ while flag_main:
 
                        ####################### Guardar idAdventure/ idCharacter / idUser
                        idUsu = getIdUserByName(login)
-                       print("INSERT INTO game (idUser,idCharacter, idAdventure, date) VALUES ({}, {}, {}, {});".format(
-                           idUsu, opc_character, opc_aventura, datetime.now()))
                        conn = get_connection()
                        cursor = conn.cursor(dictionary=True)
                        cursor.execute(""" INSERT INTO game (idUser, idAdventure, idCharacter, date) VALUES (%s, %s, %s, %s)
@@ -228,7 +226,6 @@ while flag_main:
                                current_step = next_step
                                input("\nPresiona ENTER para continuar...\n")
 
-                       print(game_context)
                        input("\nPresiona ENTER para continuar...\n")
 
 
