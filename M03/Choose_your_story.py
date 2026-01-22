@@ -19,7 +19,7 @@ while flag_main:
             login = iniciar_sesion()
             if login:
                print("Has realizado el login correctamente, bienvenido {}\n".format(login))
-               print("Enter para continuar...")
+               input("Enter para continuar...")
 
                entrar_juego = True
                while entrar_juego:
@@ -242,7 +242,7 @@ while flag_main:
                        replay()
 
                        opc = input("Elige una aventura -> ")
-                       while opc.isalpha():
+                       while not opc.isdigit():
                            opc = input("Incorrecto. Introduce un valor numérico por favor -> ")
                        opc = int(opc)
 
@@ -361,7 +361,7 @@ while flag_main:
                                input("\nPresiona ENTER para continuar...\n")
 
                            elif opcion == 4:
-                                input("Back...")
+                                input("Saliendo...")
                                 report = False
 
 
@@ -376,13 +376,7 @@ while flag_main:
 
 
 
-    # 3)Mostrar aventuras
+    # 3)Salir
     elif opc == 3:
-        if not login:
-            print("No puedes empezar a jugar sin hacer login antes.")
-            input("Pulsa enter para continuar.")
-
-    # 4)Salir
-    elif opc == 4:
         print("Cerrando el programa...")
         flag_main = False

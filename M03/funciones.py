@@ -308,7 +308,7 @@ def getOpt(textOpts="", inputOptText="", rangeList=[], dictionary={}, exceptions
             if dictionary and opt_int in dictionary.keys():
                 return opt_int
 
-        print("El valor introducido no es una opción válid")
+        print("El valor introducido no es una opción válida")
 
 
 
@@ -496,7 +496,7 @@ def getFormatedTable(queryTable, title=""):
 #                             VARIABLES SIMPLES
 # =========================================================================
 menu_logout = "\n" + "-".center(50,"-") +"\n"+"AVENTURA".center(50,"*") + "\n" + "-".center(50,"-") + "\n" + "1)Cerrar Sesión\n2)Jugar\n3)Rejugar Aventura\n4)Reportes\n5)Salir"
-menu_report = "1)Respuestas más utilizadas\n2)Jugador que más veces ha jugado\n3)Aventuras jugadas por el jugador  \n4)Back"
+menu_report = "1)Respuestas más utilizadas\n2)Jugador que más veces ha jugado\n3)Aventuras jugadas por el jugador  \n4)Retroceder"
 menu_principal = "\n" + "-".center(50,"-") +"\n"+"MENU PRINCIPAL".center(50,"*") + "\n" + "-".center(50,"-") + "\n" + "1)Crear Usuario\n2)Iniciar Sesión\n3)Salir\n"
 inputOptText="\nElige tu opción: "
 menu_creausu = "\n\n\n" + "-".center(50,"-") +"\n"+"CREACION USUARIO".center(50,"*") + "\n" + "-".center(50,"-")
@@ -528,6 +528,7 @@ def iniciar_sesion():
         return login
     else:
         print("El usuario y/o el password no son correctos.")
+        input("Pulsa enter para volver al menú principal.")
 
 def select_character():
     print(menu_ch+cab_ch)
@@ -597,6 +598,7 @@ def userExists(usu, pwd=""):
             return False
         else:
             return True
+
 def insertUser():
     conn = get_connection()
     cursor = conn.cursor(dictionary=True)
@@ -609,11 +611,13 @@ def insertUser():
         usu = input("El usuario ya existe, por favor introduce uno diferente: ")
     print("Usuario disponible.\n")
     pwd = input("Crea el password para acceder: ")
-    if checkPassword(pwd):
-        sql = "INSERT INTO user (Username, Password) VALUES (%s, %s);"
-        cursor.execute(sql, (usu, pwd))
-        conn.commit()
-        print("Se ha creado el nuevo usuario")
+    while not checkPassword(pwd):
+        pwd = input("Por favor introduce el password de usuario a crear: ")
+    sql = "INSERT INTO user (Username, Password) VALUES (%s, %s);"
+    cursor.execute(sql, (usu, pwd))
+    conn.commit()
+    print("Se ha creado el nuevo usuario")
+    input("Pulsa Enter para volver al menú principal")
 
 def getUsers():
     conn = get_connection()
@@ -843,6 +847,7 @@ def recuDatosReplay(idGame):
             print("Paso elegido: {:<60}\nRespuesta: {:<60}\n".format(datrep["description"],datrep["resolution_answer"]))
             input("")
         print("FIN")
+        input("Pulsa Enter para seguir.")
     return datos_replay_list
 
 
@@ -857,6 +862,7 @@ def aventuraPorJuego(idGame):
         return 1
     else:
         print("La opción escogida es incorrecta")
+        input("Pulsa Enter para seguir.")
         return 0
 
 
