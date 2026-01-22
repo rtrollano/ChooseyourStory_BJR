@@ -1,0 +1,1419 @@
+
+
+body{
+    background-color: rgb(255, 255, 255);
+    margin:0;
+    
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
+}
+
+h1, h2 {
+    font-weight: 700;
+    font-size: 50px;
+    text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.6),
+        0 0 12px rgba(255, 255, 255, 0.35);
+    
+
+}
+
+ 
+/*---------------------------------------------------------------------*/
+/*                               HEADER                                */
+/*---------------------------------------------------------------------*/
+
+.header {
+    position: sticky;
+    top:0;
+    background-color: #ffffff47;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    z-index: 1000;
+    
+  
+}
+
+.contenedor_header {
+   
+    height: 50px;
+    padding: 1rem 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.logo {
+    width: 250px;
+    height: auto;
+}
+.logo-header {
+    width: 300px;
+    height: auto;
+}
+
+.nav_header{
+    display: flex;
+    gap:1rem;
+    text-align: center;
+    
+
+}
+.nav_header a{
+    color:rgb(0, 0, 79) ;
+    font-weight:500 ;
+}
+
+.nav_header a:hover{
+    
+     color: rgb(255, 165, 0); 
+}
+
+
+.checkbox-menu{
+    display: none;
+}
+
+.boton_menu {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+}
+
+.boton_menu span {
+    width: 25px;
+    height: 3px;
+    background-color: #111;
+    display: block;
+}
+
+/*                             Movil                                */
+
+
+@media (max-width: 768px) {
+
+  
+    .boton_menu {
+        display: flex;
+    }
+
+   
+    .nav_header {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+
+        background-color: #ffffff;
+        flex-direction: column;
+        align-items: center;
+
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .nav_header a {
+        padding: 1rem 0;
+    }
+
+    .checkbox-menu:checked + .nav_header {
+        max-height: 400px;
+    }
+    .logo-header {
+    width: 200px;
+    height: auto;
+}
+
+}  
+
+/*---------------------------------------------------------------------*/
+/*                              footer                                 */
+/*---------------------------------------------------------------------*/
+
+
+.footer-container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color:rgb(0, 0, 79) ;
+}
+
+.footer-container p,
+.social
+{
+    padding: 0.6rem 3rem;
+
+}
+
+.material-symbols-outlined {
+    color:rgb(0, 0, 79); 
+    border-radius:50% ;
+    padding: 0.5rem;
+}
+
+.footer .social a:hover .material-symbols-outlined {
+    color: #ffffff;
+    background-color: rgb(255, 165, 0); 
+}
+
+
+
+/*---------------------------------------------------------------------*/
+/*                              index                                  */
+/*---------------------------------------------------------------------*/
+a {
+    text-decoration: none;
+}
+
+.main {
+    min-height: 100vh;
+    width: 100%;
+    background-image: url("./Assets/main.png");
+    background-size: cover;       
+    background-position: center top;    
+    background-repeat: no-repeat;  
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+
+}
+
+.contenedor-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 40px;
+   
+
+}
+
+.contenedor-main p{
+    text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.6),
+        0 0 12px rgba(255, 255, 255, 0.35);
+}
+
+.contenedor-main img{
+    width: 30rem;
+    height: auto;
+
+}
+
+.botones_main {
+display: flex;
+gap: 1rem;
+
+}
+.boton-main{
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.6);
+    color: white;
+    box-shadow: 0 8px 20px #ffffff26;
+    backdrop-filter: blur(10px);
+    transition:transform 0.25s ease,box-shadow 0.25s ease, background 0.25s ease;
+  
+}
+.boton-main:hover {
+    color: rgb(88, 88, 88);
+    transform: scale(1.08);
+
+    background: rgba(255, 255, 255, 0.9);
+
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.566);
+}
+
+.main h1,
+.main p {
+    color: white;
+}
+  
+
+
+.scroll-reveal-nave {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-image: url("./Assets/cielo_estrellado.jpg");
+    background-size: cover;       
+    background-position: center top;    
+    background-repeat: no-repeat; 
+}
+
+
+.escena {
+    position: sticky;
+    
+
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.imagen_svg {
+    width: 80px;
+    height: auto;
+    
+}
+
+.nave.izquierda {
+    animation: entrarIzquierda linear forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+.nave.derecha {
+    animation: entrarDerecha linear forwards;
+    animation-timeline: view();
+    animation-range: entry 0% cover 40%;
+}
+
+@keyframes entrarIzquierda {
+    from {
+        transform: translateX(-300px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes entrarDerecha {
+    from {
+        transform: translateX(300px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.texto {
+    color: white;
+    max-width: 360px;
+    text-align: center;
+
+    opacity: 0;
+    transform: translateY(40px);
+
+    animation: revelarTexto linear forwards;
+    animation-timeline: view();
+    animation-range: entry 40% cover 60%;
+}
+
+@keyframes revelarTexto {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
+.nuestros-juegos{
+    background-color: rgb(3, 0, 16);
+
+    color: white;
+   
+}
+
+
+.contenedor_nuestros_juegos{
+    display: flex;
+    flex-direction: column;
+  text-align: center;
+
+    
+    
+}
+
+.contenedor_videos{
+display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-around;
+  gap:2rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.caja_video{
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    
+
+}
+
+.contenedor_videos video{
+    
+    border-radius: 20px;
+}
+
+.como_jugar{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    
+}
+
+.boton_jugar{
+    
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.6);
+    color: white;
+    box-shadow: 0 8px 20px #ffffff26;
+    backdrop-filter: blur(10px);
+    transition:transform 0.25s ease,box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.boton_jugar:hover,.boton_jugar2:hover {
+    color: rgb(88, 88, 88);
+    transform: scale(1.08);
+
+    background: rgba(255, 255, 255, 0.9);
+
+    box-shadow: 0 12px 30px rgba(255, 255, 255, 0.566);
+}
+
+.boton_jugar2{
+    padding: 2rem 4rem;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.6);
+    color: white;
+    box-shadow: 0 8px 20px #ffffff26;
+    backdrop-filter: blur(10px);
+    transition: transform 0.25s ease,box-shadow 0.25s ease, background 0.25s ease;
+    font-weight: bold;
+}
+/* ================================================= */
+/* ============ MODO MÓVIL ============= */
+/* ================================================= */
+
+@media (max-width: 768px) {
+
+  
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+
+  * {
+    box-sizing: border-box;
+    min-width: 0;
+  }
+
+
+  .main {
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+
+  .contenedor-main {
+    width: 100%;
+  }
+
+  .contenedor-main img {
+    width: 220px;
+    max-width: 100%;
+  }
+
+  .botones_main {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .boton-main {
+    width: 100%;
+  }
+
+  /* ---------- SCROLL REVEAL ---------- */
+  .scroll-reveal-nave {
+    height: auto;
+    padding: 2rem 1rem;
+  }
+
+  .escena {
+    position: static;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    gap: 2rem;
+  }
+
+  /* SVG INLINE */
+  svg {
+    width: 100%;
+    max-width: 120px;
+    height: auto ;
+    display: block;
+  }
+
+  .imagen_svg {
+    max-width: 120px;
+    margin: 0 auto;
+  }
+
+  .texto {
+    opacity: 1;
+    transform: none;
+    animation: none;
+    max-width: 100%;
+    text-align: center;
+  }
+
+
+  .contenedor_videos {
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .caja_video {
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  video {
+    width: 100% ;
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+
+ 
+  .como_jugar {
+    width: 100%;
+    padding: 0 1rem;
+  }
+
+  .boton_jugar,
+  .boton_jugar2 {
+    width: 100%;
+    max-width: 100%;
+    padding: 1rem;
+    margin: 0;
+    text-align: center;
+  }
+
+ 
+  section,
+  div {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+  
+
+/*----------------------------------------------------------------------------------------------- */
+/*                                            HISTORIA                                            */
+/*----------------------------------------------------------------------------------------------- */
+.Personajes {
+  background-color: #000;   
+  padding: 0.5rem 0;          
+}
+.Personajes h1,
+.paisajes-espacio h1 {
+  color: white;
+ 
+  font-size: 3rem;
+  letter-spacing: 6px;
+  font-weight: 300;
+
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.4),
+    0 0 12px rgba(255,255,255,0.2);
+}
+
+
+
+.carrusel {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+
+
+
+
+.carrusel-aventura1 {
+  background-image: url("./Assets/fondo_mision_espacial.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.carrusel-aventura2 {
+  background-image: url("./Assets/fondo_cartas_anonimas.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.carrusel input {
+  display: none;
+}
+
+.contenedor-diapositivas {
+  display: flex;
+  width: 400%;
+  height: 100%;
+  transition: transform 0.8s ease;
+}
+
+
+.diapositiva {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+
+
+  display: flex;
+  flex-direction: row;       
+  align-items: center;
+
+
+}
+
+.diapositiva img {
+  width: 20rem;
+  height: auto;
+  object-fit: cover;
+}
+.texto-carrusel {
+  width: 55%;
+  padding: 4rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  color: white;
+
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.2)
+  );
+}
+
+#a1-1:checked ~ .contenedor-diapositivas { transform: translateX(0%); }
+#a1-2:checked ~ .contenedor-diapositivas { transform: translateX(-100%); }
+#a1-3:checked ~ .contenedor-diapositivas { transform: translateX(-200%); }
+#a1-4:checked ~ .contenedor-diapositivas { transform: translateX(-300%); }
+
+
+#a2-1:checked ~ .contenedor-diapositivas { transform: translateX(0%); }
+#a2-2:checked ~ .contenedor-diapositivas { transform: translateX(-100%); }
+#a2-3:checked ~ .contenedor-diapositivas { transform: translateX(-200%); }
+#a2-4:checked ~ .contenedor-diapositivas { transform: translateX(-300%); }
+
+
+.navegacion {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.navegacion label {
+  width: 14px;
+  height: 14px;
+  background: rgba(255,255,255,0.5);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+
+.navegacion label:hover {
+  background: white;
+  transform: scale(1.2);
+}
+
+.paisajes_aventura1,
+.paisajes_aventura2{
+  background-color: black;
+}
+
+.escenas-juego{
+  
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  color: white;
+
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.2)
+  );
+}
+
+.paisajes-espacio{
+  background-color: #000;
+  padding: 3rem;
+}
+.paisajes_aventura2 .diapositiva2,
+.paisajes_aventura2 .diapositiva3 {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.diapositiva2 {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  margin-bottom: 2rem;
+
+
+  display: flex;
+  flex-direction: row;       
+  align-items: center;
+
+
+}
+.diapositiva3 {
+  width: 100%;
+  height: 100%;
+  flex-shrink: 0;
+  
+
+
+  display: flex;
+  flex-direction: row;       
+  align-items: center;
+
+
+}
+
+.diapositiva2 img,
+.diapositiva3 img {
+  width: 20rem;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ================================================= */
+/*                         MÓVIL                     */
+/* ================================================= */
+
+@media (max-width: 768px) {
+
+
+  .carrusel {
+    height: auto;
+    overflow: visible;
+  }
+
+  .contenedor-diapositivas {
+    display: block;         
+    transform: none ;
+  }
+
+  .carrusel input,
+  .navegacion {
+    display: none;
+  }
+
+ 
+  .diapositiva,
+  .diapositiva2,
+  .diapositiva3 {
+    width: 100%;
+    min-width: 100%;
+
+    display: flex;
+    flex-direction: column !important;  /*con esto anulamos el reverse de flex que hay */
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+  }
+
+  /* ---------- IMÁGENES ---------- */
+  .diapositiva img,
+  .diapositiva2 img,
+  .diapositiva3 img {
+    width: 70%;
+    max-width: 220px;
+    height: auto;
+  }
+
+  /* ---------- TEXTO ---------- */
+  .texto-carrusel,
+  .escenas-juego {
+    width: 100%;
+    padding: 1.2rem 1rem;
+    font-size: 0.95rem;
+    text-align: center;
+    background: rgba(0,0,0,0.6);
+    box-sizing: border-box;
+  }
+
+  /* ---------- TÍTULOS ---------- */
+  .Personajes h1,
+  .paisajes-espacio h1 {
+    font-size: 1.9rem;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  .Personajes,
+  .paisajes-espacio {
+    padding: 1.5rem 1rem;
+  }
+}
+
+
+/*----------------------------------------------------------------------------------------------- */
+/*                                            INSTRUCCIONES                                       */
+/*----------------------------------------------------------------------------------------------- */
+
+
+.instrucciones{
+  background-color:rgb(0, 0, 28);
+  padding: 0 3rem;
+}
+
+
+.introduccion-instrucciones{
+  display: flex;
+  flex-direction: column; 
+ 
+}
+.imagenes-texto{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+
+.imagenes-texto h3, 
+.mecanica-juego1 h3{
+  color: white;
+  font-weight: 300;
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.4),
+    0 0 12px rgba(255,255,255,0.2);
+  
+
+}
+.como-jugar{
+  margin-top: 5rem;
+}
+
+.introduccion-instrucciones h1,
+.mecanica-juego1 h1{
+  color: white;
+  font-size: 3rem;
+  letter-spacing: 6px;
+  font-weight: 300;
+  text-shadow:
+    0 0 6px rgba(255,255,255,0.4),
+    0 0 12px rgba(255,255,255,0.2);
+    margin: 0;
+    padding: 3rem 0;
+    
+}
+
+
+.introduccion-instrucciones p{
+  color:white;
+
+}
+.imagenes-contenedor-instrucciones{
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+
+}
+.imagen-instruccion{
+    max-width: 500px;
+    height: auto;
+    border-radius: 16px;
+    overflow: hidden;
+
+}
+
+.imagen-instruccion img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.imagenes-jugar{
+  max-width: 300px;
+  height: auto;
+  overflow: hidden;
+  border-radius: 16px;
+}
+
+.imagenes-jugar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.imagenes-texto-jugar{
+  display: flex;
+ 
+}
+
+.imagenes-contenedor-jugar{
+    padding: 1rem 2rem;
+}
+
+.texto-jugar{
+height: 50%;
+width: 100%;
+  background-color: rgba(0, 0, 0, 0.407);
+  align-self: center;
+  color: white;
+  padding: 0 1.3rem;
+}
+
+
+/* --------------------- mecánica --------------------- */
+.mecanica-juego1 {
+    padding: 0 3rem;
+    background-color:rgb(0, 0, 15);
+    
+}
+
+.contenedor-mecanica {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;   
+}
+
+
+.tarjeta-mecanica {
+    width: 48%;
+    cursor: pointer;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;       
+}
+
+
+.imagen-mecanica {
+    width: 100%;               
+    max-width: 500px;         
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.imagen-mecanica img {
+    width: 100%;
+    height: 280px;             
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 1.5rem;
+
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+
+.tarjeta-mecanica h3 {
+    margin-top: 1rem;
+    font-size: 1.3rem;
+    text-align: center;
+}
+
+
+.tarjeta-mecanica:hover img {
+    transform: scale(1.1);
+    opacity: 0.3;
+}
+
+.tarjeta-mecanica:hover .overlay {
+    opacity: 1;
+}
+
+/* ================================================= */
+/*                VERSIÓN MÓVIL                      */
+/* ================================================= */
+@media (max-width: 768px) {
+
+  /* ---------- CONTENEDORES ---------- */
+  .instrucciones,
+  .mecanica-juego1 {
+    padding: 0 1rem;          
+  }
+
+  /* ---------- TÍTULOS ---------- */
+  .introduccion-instrucciones h1,
+  .mecanica-juego1 h1 {
+    font-size: 1.9rem;            
+    letter-spacing: 2px;          
+    padding: 2rem 0;
+    text-align: center;
+  }
+
+  .imagenes-texto h3,
+  .mecanica-juego1 h3 {
+    font-size: 1.2rem;
+  }
+
+  /* ---------- INTRODUCCIÓN ---------- */
+  .imagenes-contenedor-instrucciones {
+    flex-direction: column;       
+    align-items: center;
+  }
+
+  .imagen-instruccion {
+    max-width: 100%;
+  }
+
+  /* ---------- COMO JUGAR ---------- */
+  .imagenes-texto-jugar {
+    flex-direction: column;      
+    gap: 1rem;
+  }
+
+  .imagenes-contenedor-jugar {
+    padding: 1rem 0;
+  }
+
+  .imagenes-jugar {
+    max-width: 100%;
+  }
+
+  .imagenes-jugar img {
+    max-height: 180px;             
+  }
+
+  .texto-jugar {
+    padding: 1rem;
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  /* ---------- MECÁNICAS ---------- */
+  .contenedor-mecanica {
+    flex-direction: column;      
+    gap: 2rem;
+  }
+
+  .tarjeta-mecanica {
+    width: 100%;
+  }
+
+  .imagen-mecanica {
+    max-width: 100%;
+  }
+
+  .imagen-mecanica img {
+    height: 200px;                
+  }
+
+  .overlay {
+    font-size: 0.9rem;
+    padding: 1rem;
+  }
+}
+
+
+
+
+
+
+/*----------------------------------------------------------------------------------------------- */
+/*                                            CONTACTE                                            */
+/*----------------------------------------------------------------------------------------------- */
+
+.seccion-contacto {
+  padding: 4rem 3rem;
+
+  background-image: url("./Assets/cielo_estrellado.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+ 
+}
+
+
+
+.seccion-contacto h2{
+  color: white;
+  font-size: 50px;
+  letter-spacing: 3px;
+  font-weight: 300;
+ 
+  margin-bottom: 4rem;
+  text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.6),
+        0 0 12px rgba(255, 255, 255, 0.35);
+}
+.seccion-contacto p{
+  color: white;
+   font-size: 25px;
+   letter-spacing: 3px;
+   text-shadow:0 0 5px rgba(1, 84, 68, 0.4);
+  font-weight: 300;
+}
+
+.seccion-contacto a{
+  color: white;
+   font-size: 25px;
+   letter-spacing: 3px;
+  
+  font-weight: 300;
+}
+
+
+.contenedor-contacto{
+  display:flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.info-contacto{
+  display: flex;
+  flex-direction: column;
+  gap:1rem
+}
+
+
+
+.formulario-contacto{
+  display:flex ;
+  flex-direction: column;
+  width: 30rem;
+  height: 30rem;
+  border-radius: 25px;
+  justify-content: center;
+  padding: 3rem;
+  background-color: rgb(231, 150, 0);   
+  backdrop-filter: blur(5px);
+  transition: 
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease;
+
+}
+
+.mapa-contacto {
+  position: relative;
+  width:35rem;
+  height:23rem;  
+  border-radius: 16px;
+  overflow: hidden;
+   box-shadow: 0 0 12px rgba(255, 255, 255, 0.645);
+
+}
+
+.mapa-contacto iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  
+}
+
+  input {
+    padding: 0.7rem;
+    border:none;
+    background-color: #ffffff;
+    border-radius: 6px;
+    transition: 0.2s ease;
+    margin-bottom: 2.5rem;     
+}
+
+textarea{
+    padding: 2rem;
+    margin-bottom: 2.5rem;     
+    border:none;
+    background-color: #ffffff;
+    border-radius: 6px;
+    transition: 0.2s ease;
+      
+
+}
+
+
+ 
+
+.formulario-contacto button{
+align-self:  center;
+display: flex;
+justify-content: center;
+ padding: 0.7rem;
+ border:none;
+ 
+ border-radius: 6px;
+ transition: 0.2s ease;
+ margin-bottom: 2.5rem; 
+
+font-size:  18px; 
+letter-spacing: 2px;
+font-weight: 500;
+ background-color: white  ;
+color: rgb(0, 0, 79) ;
+}
+
+input[type="text"]:invalid,
+input[type="email"]:invalid,
+input[type="tel"]:invalid,
+input[type="number"]:invalid  {
+border: 1px solid rgb(182, 0, 0);
+
+    
+}
+
+.formulario-contacto button:hover{
+    background-color: rgb(0, 0, 79) ;
+    color: white;
+  
+
+cursor: pointer;
+  transform: scale(1.02);    
+
+}
+
+
+input:hover, textarea:hover{
+     cursor: pointer;
+     background-color: #45416ab3; 
+
+}
+input:focus,textarea:focus {
+    outline: none;
+    box-shadow: 0 0 3px #ffffff;
+    background-color: white;
+    transform: scale(1.03);    
+}
+
+label{
+  color: white;
+  font-size:  18px; 
+  text-shadow:0 0 8px rgba(0, 0, 0, 0.3);
+  letter-spacing: 2px;
+  font-weight: 500;
+}
+
+/*----------------------MOVIL----------------------*/
+
+
+@media (max-width: 768px) {
+
+  /* TÍTULOS */
+  .seccion-contacto h2 {
+    font-size: 32px;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .seccion-contacto p,
+  .seccion-contacto a {
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-align: center;
+  }
+
+  
+  .contenedor-contacto {
+    flex-direction: column;
+    gap: 2.5rem;
+    margin-bottom: 5rem;
+  }
+
+ 
+  .info-contacto {
+    align-items: center;
+    text-align: center;
+  }
+
+  
+  .formulario-contacto {
+    width: 100%;
+    max-width: 320px;
+    height: auto;
+    padding: 1.2rem;
+  }
+
+  
+  input,
+  textarea {
+    font-size: 16px;
+    margin-bottom: 1.8rem;
+  }
+
+
+  .formulario-contacto button {
+    width: 100%;
+    max-width: 180px;
+    height: 45px;
+    font-size: 16px;
+  }
+
+  .mapa-contacto {
+    width: 100%;
+    max-width: 320px;
+    height: 220px;
+  }
+}
+
+/*----------------------------------------------------------------------------------------------- */
+/*                                            About                                               */
+/*----------------------------------------------------------------------------------------------- */
+
+.about {
+    padding: 4rem 3rem;
+    background-image: url("./Assets/cielo_estrellado.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0 auto;
+    padding: 4rem 4rem;
+   
+
+}
+
+.team {
+    margin-bottom: 4rem;
+}
+
+.team h2,.promo h2 {
+  color: white;
+  font-size: 50px;
+  letter-spacing: 3px;
+  font-weight: 300;
+ 
+  margin-bottom: 4rem;
+  text-shadow:
+        0 0 6px rgba(255, 255, 255, 0.6),
+        0 0 12px rgba(255, 255, 255, 0.35);
+}
+
+.team p {
+   color: white;
+  margin-bottom: 1.5rem;
+   
+}
+
+
+
+.team li {
+    color: white;
+    font-size: 1.1rem;
+    padding: 0.4rem 0;
+}
+
+
+
+.video {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ================================================= */
+/*                          MÓVIL                    */
+/* ================================================= */
+@media (max-width: 768px) {
+
+  .about {
+    padding: 2rem 1rem;      
+    background-position: center top;
+  }
+
+  .team h2,
+  .promo h2 {
+    font-size: 2rem;         
+    letter-spacing: 1.5px;    
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .team p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    text-align: center;
+  }
+
+
+  .team ul {
+    padding-left: 1rem;      
+  }
+
+  .team li {
+    font-size: 0.95rem;       
+    padding: 0.3rem 0;
+  }
+
+
+  .video {
+    margin: 2rem 0;
+    border-radius: 10px;
+  }
+}
+
+
