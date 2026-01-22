@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChoseYourStory-Contacto</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+</head>
+<body>
+ <header class="header">
+        <div class="contenedor_header">
+    
+            <img src="./Assets/Logo.png" alt="" class="logo-header">
+       
+        <input type="checkbox" id="menu-toggle" class="checkbox-menu">
+
+        <nav class="nav_header">
+            <a href="./index.html">Inicio</a>
+            <a href="./instrucciones.html">Instrucciones</a>
+            <a href="./historia.html">Historia</a>
+            <a href="./contact.html">Contacto</a>
+            <a href="./about.html">About Us</a>
+        </nav>
+
+        <label for="menu-toggle" class="boton_menu" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        </div>
+    </header>
+
+ 
+
+
+  <section class="seccion-contacto">
+    <h2 class="titulo-seccion">Contacta con nosotros</h2>
+    
+
+    <div class="contenedor-contacto">
+        <div class="info-contacto">
+        <p><strong>Dirección:</strong></p>
+        <div class="mapa-contacto">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d941219.8809662719!2d-116.0188325772589!3d37.049555036444886!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80b81baaba3e8c81%3A0x970427e38e6237ae!2s%C3%81rea%2051%2C%20Nevada%2C%20EE.%20UU.!5e0!3m2!1ses!2ses!4v1768575977630!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <p><strong>Teléfono:</strong> <a href="tel:+34999999999">+34 999 999 999</a></p>
+        <p><strong>Correo electrónico:</strong> <a href="mailto:info@codisecret.cat">info@choseYourStory.cat</a></p>
+        </div>
+
+    
+        <form class="formulario-contacto">
+        <label>Nombre</label>
+        <input type="text" required pattern="[A-Za-zÀ-ÿ\s]{3,40}">
+
+        <label>Teléfono</label>
+        <input type="tel" required pattern="[0-9]{9}">
+
+        <label>Correo electrónico</label>
+        <input type="email" required>
+
+        <label>Mensaje</label>
+        <textarea required></textarea>
+
+        <button type="submit" class="btn">Enviar</button>
+        </form>
+    </div>
+
+    </section>
+
+    <footer class="footer" aria-label="Peu de pàgina">
+    <div class="footer-container">
+        <p>&copy; 2025 ChoseYourStory. Todos los derechos reservados.</p>
+        <div class="social" aria-label="Xarxes socials">
+
+            <a href="https://x.com" target="_blank" aria-label="X (Twitter)">
+            <span class="material-symbols-outlined">share</span>
+            </a>
+
+            <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
+            <span class="material-symbols-outlined">photo_camera</span>
+        <a href="https://www.facebook.com" target="_blank" aria-label="Facebook">
+            <span class="material-symbols-outlined">public</span>
+        </a>
+
+        </div>
+    </div>
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+</body>
+</html>
